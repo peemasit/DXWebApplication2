@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item Text="ประเภทของรถ" NavigateUrl="VehicleTypeList.aspx" />
+  <item Text="รุ่นรถ" NavigateUrl="VehicleList.aspx"  />
+  <item Text="ชิ้นส่วนหลัก" NavigateUrl="VehiclePartList.aspx"  />
+  <item Text="ส่วนประกอบ" NavigateUrl="CompositionPartList.aspx"  />
+  <item Text="วัสดุ" NavigateUrl="MaterialList.aspx"  />
+  <item Text="ค่าแรง" NavigateUrl="TechnicianList.aspx"  />
+</items>
