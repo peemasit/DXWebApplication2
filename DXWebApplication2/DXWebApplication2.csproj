@@ -137,11 +137,15 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="AddCompositionPart.aspx" />
-    <Content Include="AddMaterial.aspx" />
-    <Content Include="AddTechnician.aspx" />
-    <Content Include="AddVehicle.aspx" />
-    <Content Include="AddVehiclePart.aspx" />
+    <Content Include="CompositionPart\AddCompositionPart.aspx" />
+    <Content Include="Material\AddMaterial.aspx" />
+    <Content Include="Material\EditMaterial.aspx" />
+    <Content Include="Technician\AddTechnician.aspx" />
+    <Content Include="CompositionPart\EditCompositionPart.aspx" />
+    <Content Include="Technician\EditTechnician.aspx" />
+    <Content Include="VehiclePart\EditVehiclePart.aspx" />
+    <Content Include="Vehicle\AddVehicle.aspx" />
+    <Content Include="VehiclePart\AddVehiclePart.aspx" />
     <Content Include="App_Data\NWind.mdf" />
     <Content Include="App_Data\NWind_log.ldf">
       <DependentUpon>NWind.mdf</DependentUpon>
@@ -150,7 +154,7 @@
     <Content Include="App_Data\TopMenu.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="CompositionPartList.aspx" />
+    <Content Include="CompositionPart\CompositionPartList.aspx" />
     <Content Include="Content\Images\AquaHeader.jpg" />
     <Content Include="Content\Images\BlackGlassHeader.jpg" />
     <Content Include="Content\Images\GlassHeader.jpg" />
@@ -158,12 +162,14 @@
     <Content Include="Content\Images\RedWineHeader.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Vehicle\EditVehicle.aspx" />
+    <Content Include="VehicleType\EditVehicleType.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="AddVehicleType.aspx" />
-    <Content Include="MaterialList.aspx" />
-    <Content Include="TechnicianList.aspx" />
-    <Content Include="VehicleList.aspx" />
-    <Content Include="VehiclePartList.aspx" />
+    <Content Include="VehicleType\AddVehicleType.aspx" />
+    <Content Include="Material\MaterialList.aspx" />
+    <Content Include="Technician\TechnicianList.aspx" />
+    <Content Include="Vehicle\VehicleList.aspx" />
+    <Content Include="VehiclePart\VehiclePartList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Light.master" />
@@ -178,7 +184,7 @@
     <Content Include="Account\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="VehicleTypeList.aspx" />
+    <Content Include="VehicleType\VehicleTypeList.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -310,52 +316,77 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddCompositionPart.aspx.cs">
+    <Compile Include="CompositionPart\AddCompositionPart.aspx.cs">
       <DependentUpon>AddCompositionPart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddCompositionPart.aspx.designer.cs">
+    <Compile Include="CompositionPart\AddCompositionPart.aspx.designer.cs">
       <DependentUpon>AddCompositionPart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddMaterial.aspx.cs">
+    <Compile Include="Material\AddMaterial.aspx.cs">
       <DependentUpon>AddMaterial.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddMaterial.aspx.designer.cs">
+    <Compile Include="Material\AddMaterial.aspx.designer.cs">
       <DependentUpon>AddMaterial.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddTechnician.aspx.cs">
+    <Compile Include="Material\EditMaterial.aspx.cs">
+      <DependentUpon>EditMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Material\EditMaterial.aspx.designer.cs">
+      <DependentUpon>EditMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Technician\AddTechnician.aspx.cs">
       <DependentUpon>AddTechnician.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddTechnician.aspx.designer.cs">
+    <Compile Include="Technician\AddTechnician.aspx.designer.cs">
       <DependentUpon>AddTechnician.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddVehicle.aspx.cs">
+    <Compile Include="CompositionPart\EditCompositionPart.aspx.cs">
+      <DependentUpon>EditCompositionPart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompositionPart\EditCompositionPart.aspx.designer.cs">
+      <DependentUpon>EditCompositionPart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Technician\EditTechnician.aspx.cs">
+      <DependentUpon>EditTechnician.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Technician\EditTechnician.aspx.designer.cs">
+      <DependentUpon>EditTechnician.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VehiclePart\EditVehiclePart.aspx.cs">
+      <DependentUpon>EditVehiclePart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VehiclePart\EditVehiclePart.aspx.designer.cs">
+      <DependentUpon>EditVehiclePart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle\AddVehicle.aspx.cs">
       <DependentUpon>AddVehicle.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddVehicle.aspx.designer.cs">
+    <Compile Include="Vehicle\AddVehicle.aspx.designer.cs">
       <DependentUpon>AddVehicle.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddVehiclePart.aspx.cs">
+    <Compile Include="VehiclePart\AddVehiclePart.aspx.cs">
       <DependentUpon>AddVehiclePart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddVehiclePart.aspx.designer.cs">
+    <Compile Include="VehiclePart\AddVehiclePart.aspx.designer.cs">
       <DependentUpon>AddVehiclePart.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="CompositionPartList.aspx.cs">
+    <Compile Include="CompositionPart\CompositionPartList.aspx.cs">
       <DependentUpon>CompositionPartList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CompositionPartList.aspx.designer.cs">
+    <Compile Include="CompositionPart\CompositionPartList.aspx.designer.cs">
       <DependentUpon>CompositionPartList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controller\BasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -363,6 +394,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle\EditVehicle.aspx.cs">
+      <DependentUpon>EditVehicle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vehicle\EditVehicle.aspx.designer.cs">
+      <DependentUpon>EditVehicle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleType\EditVehicleType.aspx.cs">
+      <DependentUpon>EditVehicleType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VehicleType\EditVehicleType.aspx.designer.cs">
+      <DependentUpon>EditVehicleType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -381,11 +426,11 @@
     <Compile Include="Main.master.designer.cs">
       <DependentUpon>Main.master</DependentUpon>
     </Compile>
-    <Compile Include="MaterialList.aspx.cs">
+    <Compile Include="Material\MaterialList.aspx.cs">
       <DependentUpon>MaterialList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MaterialList.aspx.designer.cs">
+    <Compile Include="Material\MaterialList.aspx.designer.cs">
       <DependentUpon>MaterialList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -398,45 +443,46 @@
       <DependentUpon>Root.master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="AddVehicleType.aspx.cs">
+    <Compile Include="VehicleType\AddVehicleType.aspx.cs">
       <DependentUpon>AddVehicleType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddVehicleType.aspx.designer.cs">
+    <Compile Include="VehicleType\AddVehicleType.aspx.designer.cs">
       <DependentUpon>AddVehicleType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TechnicianList.aspx.cs">
+    <Compile Include="Technician\TechnicianList.aspx.cs">
       <DependentUpon>TechnicianList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TechnicianList.aspx.designer.cs">
+    <Compile Include="Technician\TechnicianList.aspx.designer.cs">
       <DependentUpon>TechnicianList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VehicleList.aspx.cs">
+    <Compile Include="Vehicle\VehicleList.aspx.cs">
       <DependentUpon>VehicleList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VehicleList.aspx.designer.cs">
+    <Compile Include="Vehicle\VehicleList.aspx.designer.cs">
       <DependentUpon>VehicleList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VehiclePartList.aspx.cs">
+    <Compile Include="VehiclePart\VehiclePartList.aspx.cs">
       <DependentUpon>VehiclePartList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VehiclePartList.aspx.designer.cs">
+    <Compile Include="VehiclePart\VehiclePartList.aspx.designer.cs">
       <DependentUpon>VehiclePartList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VehicleTypeList.aspx.cs">
+    <Compile Include="VehicleType\VehicleTypeList.aspx.cs">
       <DependentUpon>VehicleTypeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VehicleTypeList.aspx.designer.cs">
+    <Compile Include="VehicleType\VehicleTypeList.aspx.designer.cs">
       <DependentUpon>VehicleTypeList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
