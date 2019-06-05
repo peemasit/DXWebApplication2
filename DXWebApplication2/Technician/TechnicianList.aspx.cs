@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DevExpress.Web;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -15,6 +17,7 @@ namespace DXWebApplication2
         string conStr = WebConfigurationManager.ConnectionStrings["VehicleDatabaseConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 bindData();
@@ -24,7 +27,7 @@ namespace DXWebApplication2
         {
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "SELECT* FROM tblTechnician";
+            string query = "SELECT* FROM tblTechnician where tecActive = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader rd = cmd.ExecuteReader();
             gvVehicle.DataSource = rd;
@@ -50,11 +53,28 @@ namespace DXWebApplication2
             string id = row.Cells[0].Text;
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "delete from tblTechnician where tecId=@Id";
+            string query = "update tblTechnician set tecActive = 0 where tecId=@Id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.ExecuteNonQuery();
             bindData();
         }
+        protected void copyBtn_Click(object sender, EventArgs e)
+        {
+            var editBtn = (Button)sender;
+            var row = (GridViewRow)editBtn.NamingContainer;
+            string id = row.Cells[0].Text;
+            Response.Redirect("AddTechnician.aspx?id=" + id);
+        }
+        protected void grid_CustomButtonCallback(object sender, ASPxGridViewCustomButtonCallbackEventArgs e)
+        {
+           
+        }
+        protected void grid_InitNewRow(object sender, DevExpress.Web.Data.ASPxDataInitNewRowEventArgs e)
+        {
+            
+        }
+
+        
     }
 }

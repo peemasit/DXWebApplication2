@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -11,19 +12,33 @@ namespace DXWebApplication2
 {
     public partial class Test1 : System.Web.UI.Page
     {
-        
-        
+        string conStr = WebConfigurationManager.ConnectionStrings["VehicleDatabaseConnectionString1"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            string id = Request.QueryString["id"];
+            if (id != null && !IsPostBack)
+            {
+                SqlConnection conn = new SqlConnection(conStr);
+                string query = "select * from tblVehicleType where vetId = @id";
+                SqlCommand sqlCommand = new SqlCommand(query, conn);
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                sqlCommand.Parameters.AddWithValue("@id", id);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    subtitleTxt.Text = dr["vetSubtitle"].ToString();
+                    remarkTxt.Text = dr["vetRemark"].ToString();
+                    imageTxt.Text = dr["vetImage"].ToString();
+                }
+            }
         }
         protected void insertBtn_Click(object sender, EventArgs e)
         {
-            string conStr = WebConfigurationManager.ConnectionStrings["VehicleDatabaseConnectionString1"].ConnectionString;
             SqlConnection conn = new SqlConnection(conStr);
             try
             {
-                string query = "insert into tblVehicleType values (@vetSubtitle, @vetImage, @vetRemark)";
+                string query = "insert into tblVehicleType (vetSubtitle,vetImage,vetRemark,vetActive) values (@vetSubtitle, @vetImage, @vetRemark,1)";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
                 conn.Open();
                 sqlCommand.Parameters.AddWithValue("@vetSubtitle", subtitleTxt.Text);

@@ -2,9 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table style="width:100%;">
         <tr>
-            <td style="width: 179px">รหัสส่วนประกอบ</td>
+            <td style="width: 179px">ID ส่วนประกอบ</td>
             <td>
                 <asp:TextBox ID="idTxt" runat="server" Enabled="False"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 179px; height: 29px;">รหัสส่วนประกอบ</td>
+            <td style="height: 29px">
+                <asp:TextBox ID="codeTxt" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -34,9 +40,9 @@
         <tr>
             <td style="width: 179px; height: 29px">รหัสชิ้นส่วนหลัก</td>
             <td style="height: 29px">
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="vepId" DataValueField="vepId">
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="vepSubtitle" DataValueField="vepId">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vepId] FROM [tblVehiclePart]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vepSubtitle], [vepId] FROM [tblVehiclePart] where vepActive=1"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>

@@ -4,7 +4,7 @@
         <tr>
             <td style="width: 179px">รหัสวัสดุ</td>
             <td>
-                <asp:TextBox ID="idTxt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="codeTxt" runat="server"></asp:TextBox>
             </td>
         </tr>   
         <tr>

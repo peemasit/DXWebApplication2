@@ -1,10 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Light.master" AutoEventWireup="true" CodeBehind="EditVehicleType.aspx.cs" Inherits="DXWebApplication2.EditVehicleType" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server" >
     <table style="width:100%;">
+        <tr>
+            <td style="height: 29px">รหัสประเภทรถ</td>
+            <td style="height: 29px">
+                <asp:TextBox ID="idTxt" runat="server" Enabled="false"></asp:TextBox>
+            </td>
+        </tr>
         <tr>
             <td style="height: 29px">ชื่อประเภทรถ</td>
             <td style="height: 29px">
-                <asp:TextBox ID="subtitleTxt" runat="server" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="subtitleTxt" runat="server" Enabled="true"></asp:TextBox>
             </td>
         </tr>
         <tr>

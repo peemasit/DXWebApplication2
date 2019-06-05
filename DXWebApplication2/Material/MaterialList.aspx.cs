@@ -27,7 +27,7 @@ namespace DXWebApplication2
         {
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "SELECT* FROM tblMaterial";
+            string query = "SELECT* FROM tblMaterial where matActive = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader rd = cmd.ExecuteReader();
             gvVehicle.DataSource = rd;
@@ -52,11 +52,19 @@ namespace DXWebApplication2
             string id = row.Cells[0].Text;
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "delete from tblMaterial where matId=@Id";
+            string query = "update tblMaterial set matActive = 0 where matId=@Id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.ExecuteNonQuery();
             bindData();
+        }
+
+        protected void copyBtn_Click(object sender, EventArgs e)
+        {
+            var editBtn = (Button)sender;
+            var row = (GridViewRow)editBtn.NamingContainer;
+            string id = row.Cells[0].Text;
+            Response.Redirect("AddMaterial.aspx?id=" + id);
         }
 
         //protected void gvVehicle_RowDeleting(object sender, GridViewDeleteEventArgs e)

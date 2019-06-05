@@ -24,7 +24,7 @@ namespace DXWebApplication2
         {
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "SELECT* FROM tblVehiclePart";
+            string query = "SELECT* FROM tblVehiclePart where vepActive = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader rd = cmd.ExecuteReader();
             gvVehicle.DataSource = rd;
@@ -49,11 +49,19 @@ namespace DXWebApplication2
             string id = row.Cells[0].Text;
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "delete from tblVehiclePart where vepId=@Id";
+            string query = "update tblVehiclePart set vepActive = 0 where vepId=@Id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.ExecuteNonQuery();
             bindData();
+        }
+
+        protected void copyBtn_Click(object sender, EventArgs e)
+        {
+            var editBtn = (Button)sender;
+            var row = (GridViewRow)editBtn.NamingContainer;
+            string id = row.Cells[0].Text;
+            Response.Redirect("AddVehiclePart.aspx?id=" + id);
         }
     }
 }

@@ -137,6 +137,77 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Themes\Aqua\HeaderBack.jpg" />
+    <Content Include="App_Themes\Aqua\site.css" />
+    <Content Include="App_Themes\Aqua\sprite.css" />
+    <Content Include="App_Themes\Aqua\sprite.png" />
+    <Content Include="App_Themes\BlackGlass\HeaderBack.jpg" />
+    <Content Include="App_Themes\BlackGlass\site.css" />
+    <Content Include="App_Themes\BlackGlass\sprite.css" />
+    <Content Include="App_Themes\BlackGlass\sprite.png" />
+    <Content Include="App_Themes\Default\site.css" />
+    <Content Include="App_Themes\Default\sprite.css" />
+    <Content Include="App_Themes\Default\sprite.png" />
+    <Content Include="App_Themes\DevEx\site.css" />
+    <Content Include="App_Themes\DevEx\sprite.css" />
+    <Content Include="App_Themes\DevEx\sprite.png" />
+    <Content Include="App_Themes\Glass\HeaderBack.jpg" />
+    <Content Include="App_Themes\Glass\site.css" />
+    <Content Include="App_Themes\Glass\sprite.css" />
+    <Content Include="App_Themes\Glass\sprite.png" />
+    <Content Include="App_Themes\iOS\site.css" />
+    <Content Include="App_Themes\iOS\sprite.css" />
+    <Content Include="App_Themes\iOS\sprite.png" />
+    <Content Include="App_Themes\MaterialCompact\site.css" />
+    <Content Include="App_Themes\MaterialCompact\sprite.css" />
+    <Content Include="App_Themes\MaterialCompact\sprite.png" />
+    <Content Include="App_Themes\Material\site.css" />
+    <Content Include="App_Themes\Material\sprite.css" />
+    <Content Include="App_Themes\Material\sprite.png" />
+    <Content Include="App_Themes\MetropolisBlue\site.css" />
+    <Content Include="App_Themes\MetropolisBlue\sprite.css" />
+    <Content Include="App_Themes\MetropolisBlue\sprite.png" />
+    <Content Include="App_Themes\Metropolis\site.css" />
+    <Content Include="App_Themes\Metropolis\sprite.css" />
+    <Content Include="App_Themes\Metropolis\sprite.png" />
+    <Content Include="App_Themes\Moderno\site.css" />
+    <Content Include="App_Themes\Moderno\sprite.css" />
+    <Content Include="App_Themes\Moderno\sprite.png" />
+    <Content Include="App_Themes\Mulberry\site.css" />
+    <Content Include="App_Themes\Mulberry\sprite.css" />
+    <Content Include="App_Themes\Mulberry\sprite.png" />
+    <Content Include="App_Themes\Office2003Blue\site.css" />
+    <Content Include="App_Themes\Office2003Blue\sprite.css" />
+    <Content Include="App_Themes\Office2003Blue\sprite.png" />
+    <Content Include="App_Themes\Office2003Olive\site.css" />
+    <Content Include="App_Themes\Office2003Olive\sprite.css" />
+    <Content Include="App_Themes\Office2003Olive\sprite.png" />
+    <Content Include="App_Themes\Office2003Silver\site.css" />
+    <Content Include="App_Themes\Office2003Silver\sprite.css" />
+    <Content Include="App_Themes\Office2003Silver\sprite.png" />
+    <Content Include="App_Themes\Office2010Black\site.css" />
+    <Content Include="App_Themes\Office2010Black\sprite.css" />
+    <Content Include="App_Themes\Office2010Black\sprite.png" />
+    <Content Include="App_Themes\Office2010Blue\site.css" />
+    <Content Include="App_Themes\Office2010Blue\sprite.css" />
+    <Content Include="App_Themes\Office2010Blue\sprite.png" />
+    <Content Include="App_Themes\Office2010Silver\site.css" />
+    <Content Include="App_Themes\Office2010Silver\sprite.css" />
+    <Content Include="App_Themes\Office2010Silver\sprite.png" />
+    <Content Include="App_Themes\PlasticBlue\HeaderBack.jpg" />
+    <Content Include="App_Themes\PlasticBlue\site.css" />
+    <Content Include="App_Themes\PlasticBlue\sprite.css" />
+    <Content Include="App_Themes\PlasticBlue\sprite.png" />
+    <Content Include="App_Themes\RedWine\HeaderBack.jpg" />
+    <Content Include="App_Themes\RedWine\site.css" />
+    <Content Include="App_Themes\RedWine\sprite.css" />
+    <Content Include="App_Themes\RedWine\sprite.png" />
+    <Content Include="App_Themes\SoftOrange\site.css" />
+    <Content Include="App_Themes\SoftOrange\sprite.css" />
+    <Content Include="App_Themes\SoftOrange\sprite.png" />
+    <Content Include="App_Themes\Youthful\site.css" />
+    <Content Include="App_Themes\Youthful\sprite.css" />
+    <Content Include="App_Themes\Youthful\sprite.png" />
     <Content Include="CompositionPart\AddCompositionPart.aspx" />
     <Content Include="Material\AddMaterial.aspx" />
     <Content Include="Material\EditMaterial.aspx" />
@@ -482,7 +553,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Themes\Theme1\" />
+    <Folder Include="App_Themes\Theme2\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

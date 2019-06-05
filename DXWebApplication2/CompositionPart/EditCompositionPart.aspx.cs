@@ -24,11 +24,12 @@ namespace DXWebApplication2.CompositionPart
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                 string id = Request.QueryString["id"];
                 sqlCommand.Parameters.AddWithValue("@id", id);
-                DataTable CustomerTable = new DataTable();
-                sqlDataAdapter.Fill(CustomerTable);
-                foreach (DataRow dr in CustomerTable.Rows)
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                foreach (DataRow dr in dataTable.Rows)
                 {
                     idTxt.Text = dr["copId"].ToString();
+                    codeTxt.Text = dr["copCode"].ToString();
                     subtitleTxt.Text = dr["copSubtitle"].ToString();
                     remarkTxt.Text = dr["copRemark"].ToString();
                     imageTxt.Text = dr["copImage"].ToString();
@@ -43,15 +44,16 @@ namespace DXWebApplication2.CompositionPart
             SqlConnection conn = new SqlConnection(conStr);
             try
             {
-                string query = "update tblCompositionPart set copSubtitle=@Subtitle, copImage=@Image, copRemark=@Remark, copFile=@File,  vepId=@FKId  where copId=@Id";
+                string query = "update tblCompositionPart set copCode=@Code, copSubtitle=@Subtitle, copImage=@Image, copRemark=@Remark, copFile=@File,  vepId=@FKId  where copId=@Id";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
                 conn.Open();
                 sqlCommand.Parameters.AddWithValue("@Id", idTxt.Text);
+                sqlCommand.Parameters.AddWithValue("@Code", codeTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Subtitle", subtitleTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Image", imageTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Remark", remarkTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@File", fileTxt.Text);
-                sqlCommand.Parameters.AddWithValue("@FKId", DropDownList1.SelectedItem.Text);
+                sqlCommand.Parameters.AddWithValue("@FKId", DropDownList1.SelectedValue);
                 sqlCommand.ExecuteScalar();
             }
             catch (Exception ex)

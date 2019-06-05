@@ -2,11 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table style="width:100%;">
         <tr>
-            <td style="width: 179px">รหัสวัสดุ</td>
+            <td style="width: 179px">ID วัสดุ</td>
             <td>
                 <asp:TextBox ID="idTxt" runat="server" Enabled="False"></asp:TextBox>
             </td>
-        </tr>   
+        </tr>
+        <tr>
+            <td style="width: 179px; height: 29px;">รหัสวัสดุ</td>
+            <td style="height: 29px">
+                <asp:TextBox ID="codeTxt" runat="server"></asp:TextBox>
+            </td>
+        </tr>
         <tr>
             <td style="width: 179px; height: 29px;">ชื่อวัสดุ</td>
             <td style="height: 29px">

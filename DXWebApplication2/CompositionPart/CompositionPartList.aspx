@@ -4,10 +4,11 @@
         <div class="col" style="padding-top:10px">
             <asp:Button ID="createBtn" runat="server" Text="Create" OnClick="createBtn_Click" />
             <asp:GridView ID="gvVehicle" runat="server"
-                AutoGenerateColumns="false">
+                AutoGenerateColumns="false" Width="100%">
                 <Columns>
-                    <asp:BoundField DataField="copId" HeaderText="รหัสส่วนประกอบ"  />
-                    <asp:BoundField DataField="copSubtitle" HeaderText="ชื่อส่วนประกอบรถ"  />
+                    <asp:BoundField DataField="copId" HeaderText="ID ส่วนประกอบ"  />
+                    <asp:BoundField DataField="copCode" HeaderText="รหัสส่วนประกอบ"  />
+                    <asp:BoundField DataField="copSubtitle" HeaderText="ชื่อส่วนประกอบ"  />
                     <asp:BoundField DataField="copRemark" HeaderText="คำอธิบาย"  />
                     <asp:TemplateField HeaderText="รูป" >
                         <ItemTemplate>
@@ -16,9 +17,14 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="copFile" HeaderText="ไฟล์" />
                     <asp:BoundField DataField="vepId" HeaderText="รหัสรุ่นรถ" />
-                    <asp:TemplateField HeaderText="แก้ไช" >
+                    <asp:TemplateField HeaderText="แก้ไข" >
                         <ItemTemplate>
                             <asp:Button id="editBtn" runat="server" Text="Edit" OnClick="editBtn_Click" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="คัดลอก" >
+                        <ItemTemplate>
+                            <asp:Button id="copyBtn" runat="server" Text="Copy" OnClick="copyBtn_Click" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="ลบ" >

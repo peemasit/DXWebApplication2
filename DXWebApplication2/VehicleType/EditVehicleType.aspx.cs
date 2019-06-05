@@ -18,15 +18,16 @@ namespace DXWebApplication2
             if (!IsPostBack)
             {
                 SqlConnection conn = new SqlConnection(conStr);
-                string query = "select * from tblVehicleType where vetSubtitle = @sub";
+                string query = "select * from tblVehicleType where vetId = @id";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                string id = Request.QueryString["sub"];
-                sqlCommand.Parameters.AddWithValue("@sub", id);
-                DataTable CustomerTable = new DataTable();
-                sqlDataAdapter.Fill(CustomerTable);
-                foreach (DataRow dr in CustomerTable.Rows)
+                string id = Request.QueryString["id"];
+                sqlCommand.Parameters.AddWithValue("@id", id);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                foreach (DataRow dr in dataTable.Rows)
                 {
+                    idTxt.Text = dr["vetId"].ToString();
                     subtitleTxt.Text = dr["vetSubtitle"].ToString();
                     remarkTxt.Text = dr["vetRemark"].ToString();
                     imageTxt.Text = dr["vetImage"].ToString();
@@ -40,9 +41,10 @@ namespace DXWebApplication2
             SqlConnection conn = new SqlConnection(conStr);
             try
             {
-                string query = "update tblVehicleType set vetImage=@vetImage, vetRemark=@vetRemark where vetSubtitle=@vetSubtitle";
+                string query = "update tblVehicleType set vetSubtitle=@vetSubtitle, vetImage=@vetImage, vetRemark=@vetRemark where vetId=@vetId";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
                 conn.Open();
+                sqlCommand.Parameters.AddWithValue("@vetId", idTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@vetSubtitle", subtitleTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@vetImage", imageTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@vetRemark", remarkTxt.Text);

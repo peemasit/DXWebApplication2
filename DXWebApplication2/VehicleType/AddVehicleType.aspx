@@ -1,6 +1,12 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.master" AutoEventWireup="true" CodeBehind="AddVehicleType.aspx.cs" Inherits="DXWebApplication2.Test1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Light.master" AutoEventWireup="true" CodeBehind="AddVehicleType.aspx.cs" Inherits="DXWebApplication2.Test1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table style="width:100%;">
+        <%--<tr>
+            <td style="height: 29px">&nbsp;</td>
+            <td style="height: 29px">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vetSubtitle] FROM [tblVehicleType]"></asp:SqlDataSource>
+            </td>
+        </tr>--%>
         <tr>
             <td style="height: 29px">ชื่อประเภทรถ</td>
             <td style="height: 29px">

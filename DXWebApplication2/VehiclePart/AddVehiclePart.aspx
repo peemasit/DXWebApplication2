@@ -4,7 +4,7 @@
         <tr>
             <td style="width: 179px">รหัสชิ้นส่วนหลัก</td>
             <td>
-                <asp:TextBox ID="idTxt" runat="server"></asp:TextBox>
+                <asp:TextBox ID="codeTxt" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -34,9 +34,9 @@
         <tr>
             <td style="width: 179px; height: 29px">รหัสรุ่นรถ</td>
             <td style="height: 29px">
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="vehId" DataValueField="vehId">
+                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="vehSubtitle" DataValueField="vehId">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vehId] FROM [tblVehicle]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vehSubtitle], [vehId] FROM [tblVehicle] where vehActive=1"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>

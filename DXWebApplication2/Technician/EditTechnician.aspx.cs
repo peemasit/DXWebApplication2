@@ -29,6 +29,7 @@ namespace DXWebApplication2.Technician
                 foreach (DataRow dr in CustomerTable.Rows)
                 {
                     idTxt.Text = dr["tecId"].ToString();
+                    codeTxt.Text = dr["tecCode"].ToString();
                     subtitleTxt.Text = dr["tecSubtitle"].ToString();
                     remarkTxt.Text = dr["tecRemark"].ToString();
                     hourRateTxt.Text = dr["tecHourRate"].ToString();
@@ -41,10 +42,11 @@ namespace DXWebApplication2.Technician
             SqlConnection conn = new SqlConnection(conStr);
             try
             {
-                string query = "update tblTechnician set tecSubtitle=@Subtitle, tecRemark=@Remark, tecHourRate=@HourRate where tecId=@Id";
+                string query = "update tblTechnician set tecCode=@Code tecSubtitle=@Subtitle, tecRemark=@Remark, tecHourRate=@HourRate where tecId=@Id";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
                 conn.Open();
                 sqlCommand.Parameters.AddWithValue("@Id", idTxt.Text);
+                sqlCommand.Parameters.AddWithValue("@Code", codeTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Subtitle", subtitleTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Remark", remarkTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@HourRate", hourRateTxt.Text);

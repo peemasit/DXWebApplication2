@@ -2,9 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table style="width:100%;">
         <tr>
-            <td style="width: 179px">รหัสตำแหน่ง</td>
+            <td style="width: 179px">ID ตำแหน่ง</td>
             <td>
                 <asp:TextBox ID="idTxt" runat="server" Enabled="False"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 179px">รหัสตำแหน่ง</td>
+            <td>
+                <asp:TextBox ID="codeTxt" runat="server" Enabled="True"></asp:TextBox>
             </td>
         </tr>
         <tr>

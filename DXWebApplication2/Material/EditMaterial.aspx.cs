@@ -29,6 +29,7 @@ namespace DXWebApplication2.Material
                 foreach (DataRow dr in CustomerTable.Rows)
                 {
                     idTxt.Text = dr["matId"].ToString();
+                    codeTxt.Text = dr["matCode"].ToString();
                     subtitleTxt.Text = dr["matSubtitle"].ToString();
                     remarkTxt.Text = dr["matRemark"].ToString();
                     imageTxt.Text = dr["matImage"].ToString();
@@ -43,10 +44,11 @@ namespace DXWebApplication2.Material
             SqlConnection conn = new SqlConnection(conStr);
             try
             {
-                string query = "update tblMaterial set matSubtitle=@Subtitle, matImage=@Image, matRemark=@Remark, matFile=@File,  matPrice=@Price  where matId=@Id";
+                string query = "update tblMaterial set matCode=@Code, matSubtitle=@Subtitle, matImage=@Image, matRemark=@Remark, matFile=@File,  matPrice=@Price  where matId=@Id";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
                 conn.Open();
                 sqlCommand.Parameters.AddWithValue("@Id", idTxt.Text);
+                sqlCommand.Parameters.AddWithValue("@Code", codeTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Subtitle", subtitleTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Image", imageTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Remark", remarkTxt.Text);
@@ -68,7 +70,6 @@ namespace DXWebApplication2.Material
         protected void backBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("MaterialList.aspx");
-
         }
     }
 }

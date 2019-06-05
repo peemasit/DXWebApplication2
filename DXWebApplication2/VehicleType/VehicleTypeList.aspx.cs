@@ -23,10 +23,9 @@ namespace DXWebApplication2
 
         private void bindData()
         {
-            
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "SELECT* FROM tblVehicleType";
+            string query = "SELECT* FROM tblVehicleType where vetActive = 1";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataReader rd = cmd.ExecuteReader();
             gvVehicle.DataSource = rd;
@@ -43,7 +42,7 @@ namespace DXWebApplication2
             var editBtn = (Button)sender;
             var row = (GridViewRow)editBtn.NamingContainer;
             string id = row.Cells[0].Text;
-            Response.Redirect("EditVehicleType.aspx?sub=" + id);
+            Response.Redirect("EditVehicleType.aspx?id=" + id);
         }
         protected void deleteBtn_Click(object sender, EventArgs e)
         {
@@ -52,12 +51,19 @@ namespace DXWebApplication2
             string id = row.Cells[0].Text;
             SqlConnection conn = new SqlConnection(conStr);
             conn.Open();
-            string query = "delete from tblVehicleType where vetSubtitle=@Id";
+            string query = "update tblVehicleType set vetActive = 0 where vetId=@Id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@Id", id);
             cmd.ExecuteNonQuery();
             bindData();
         }
-        
+
+        protected void copyBtn_Click(object sender, EventArgs e)
+        {
+            var editBtn = (Button)sender;
+            var row = (GridViewRow)editBtn.NamingContainer;
+            string id = row.Cells[0].Text;
+            Response.Redirect("AddVehicleType.aspx?id=" + id);
+        }
     }
 }

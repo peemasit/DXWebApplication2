@@ -17,7 +17,7 @@ namespace DXWebApplication2.VehiclePart
         {
             if (!IsPostBack)
             {
-
+                bindData();
                 SqlConnection conn = new SqlConnection(conStr);
                 string query = "select * from tblVehiclePart where vepId = @id";
                 SqlCommand sqlCommand = new SqlCommand(query, conn);
@@ -29,13 +29,33 @@ namespace DXWebApplication2.VehiclePart
                 foreach (DataRow dr in CustomerTable.Rows)
                 {
                     idTxt.Text = dr["vepId"].ToString();
+                    codeTxt.Text = dr["vepCode"].ToString();
                     subtitleTxt.Text = dr["vepSubtitle"].ToString();
                     remarkTxt.Text = dr["vepRemark"].ToString();
                     imageTxt.Text = dr["vepImage"].ToString();
                     fileTxt.Text = dr["vepFile"].ToString();
-                    DropDownList1.SelectedValue = dr["vehId"].ToString();
                 }
             }
+        }
+        private void bindData()
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(conStr);
+                string id = Request.QueryString["id"];
+                conn.Open();
+                string query = "SELECT* FROM vw_DeVehiclePart where vepId=@id and deVepActive = 1";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                SqlDataReader rd = cmd.ExecuteReader();
+                gvDetail.DataSource = rd;
+                gvDetail.DataBind();
+            }
+            catch (Exception)
+            {
+                
+            }
+            
         }
 
         protected void updateBtn_Click(object sender, EventArgs e)
@@ -51,7 +71,7 @@ namespace DXWebApplication2.VehiclePart
                 sqlCommand.Parameters.AddWithValue("@Image", imageTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@Remark", remarkTxt.Text);
                 sqlCommand.Parameters.AddWithValue("@File", fileTxt.Text);
-                sqlCommand.Parameters.AddWithValue("@FKId", DropDownList1.SelectedItem.Text);
+                //sqlCommand.Parameters.AddWithValue("@FKId", DropDownList1.SelectedValue);
                 sqlCommand.ExecuteScalar();
             }
             catch (Exception ex)

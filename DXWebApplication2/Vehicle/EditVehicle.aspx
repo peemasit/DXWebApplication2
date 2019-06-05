@@ -2,9 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <table style="width:100%;">
         <tr>
-            <td style="width: 179px">รหัสรุ่นรถ</td>
+            <td style="width: 179px">ID</td>
             <td>
                 <asp:TextBox ID="idTxt" runat="server" Enabled="False"></asp:TextBox>
+            </td>
+        </tr>
+         <tr>
+            <td style="width: 179px">รหัสรุ่นรถ</td>
+            <td>
+                <asp:TextBox ID="codeTxt" runat="server" Enabled="True"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -34,9 +40,9 @@
         <tr>
             <td style="width: 179px; height: 29px">ประเภทรถ</td>
             <td style="height: 29px">
-                <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="vetSubtitle" DataValueField="vetSubtitle">
+               <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="vetSubtitle" DataValueField="vetId">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vetSubtitle] FROM [tblVehicleType]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:VehicleDatabaseConnectionString1 %>" SelectCommand="SELECT [vetSubtitle], [vetId] FROM [tblVehicleType] where vetActive=1"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>

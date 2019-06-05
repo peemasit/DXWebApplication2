@@ -3,7 +3,7 @@
      <div class="row">
         <div class="col" style="padding-top:10px">
             <asp:Button ID="createBtn" runat="server" Text="Create" OnClick="createBtn_Click" />
-            <asp:GridView ID="gvVehicle" runat="server" AutoGenerateColumns="false" >
+            <asp:GridView ID="gvVehicle" runat="server" AutoGenerateColumns="false" Width="100%" >
                 <Columns>
                     <%--<asp:TemplateField HeaderText="รหัสวัสดุ" >
                         <ItemTemplate>
@@ -20,7 +20,8 @@
                             <asp:Label ID="remarkLbl" Text='<%# Eval("matRemark") %>' runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>--%>
-                    <asp:BoundField DataField="matId" HeaderText="รหัสวัสดุ"  />
+                    <asp:BoundField DataField="matId" HeaderText="ID วัสดุ"  />
+                    <asp:BoundField DataField="matCode" HeaderText="รหัสวัสดุ"  />
                     <asp:BoundField DataField="matSubtitle" HeaderText="ชื่อวัสดุ"  />
                     <asp:BoundField DataField="matRemark" HeaderText="คำอธิบาย"  />
                     <asp:TemplateField HeaderText="รูป" >
@@ -36,9 +37,14 @@
                             <asp:Button Text="Cancel" ID="cancelBtn" runat="server" CommandName="Cancel" />
                         </EditItemTemplate>--%>
                     
-                    <asp:TemplateField HeaderText="แก้ไช" >
+                    <asp:TemplateField HeaderText="แก้ไข" >
                         <ItemTemplate>
                             <asp:Button id="editBtn" runat="server" Text="Edit" OnClick="editBtn_Click1" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="คัดลอก" >
+                        <ItemTemplate>
+                            <asp:Button id="copyBtn" runat="server" Text="Copy" OnClick="copyBtn_Click" />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="ลบ" >
